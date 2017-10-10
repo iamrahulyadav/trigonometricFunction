@@ -35,7 +35,7 @@ public class TrigonometricFunctionDemoView extends SurfaceView implements Handle
 
     private final static int CIRCLE_ANGLE = 360;
     private final static int CIRCLE_ANGLE_INIT = 0;
-    private final static int CIRCLE_ANGLE_CONST = 2;
+    private final static double CIRCLE_ANGLE_CONST = 2;
 
 
     private Handler handler;
@@ -45,7 +45,7 @@ public class TrigonometricFunctionDemoView extends SurfaceView implements Handle
 
 
     private Timer circleAngleTimer;
-    private int circleAngle = CIRCLE_ANGLE_INIT;
+    private double circleAngle = CIRCLE_ANGLE_INIT;
 
     private SurfaceHolder surfaceHolder;
 
@@ -193,7 +193,7 @@ public class TrigonometricFunctionDemoView extends SurfaceView implements Handle
     @Override
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
         circleAngleTimer = new Timer();
-        circleAngleTimer.schedule(new CircleAngleTimerTask(),1000,50);
+        circleAngleTimer.schedule(new CircleAngleTimerTask(),1000,20);
     }
 
     @Override
