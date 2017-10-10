@@ -35,7 +35,7 @@ public class TrigonometricFunctionDemoView extends SurfaceView implements Handle
 
     private final static int CIRCLE_ANGLE = 360;
     private final static int CIRCLE_ANGLE_INIT = 0;
-    private final static int CIRCLE_ANGLE_CONST = 10;
+    private final static int CIRCLE_ANGLE_CONST = 2;
 
 
     private Handler handler;
@@ -65,7 +65,7 @@ public class TrigonometricFunctionDemoView extends SurfaceView implements Handle
     private void draw() throws Exception {
         canvas = surfaceHolder.lockCanvas();
 
-        //draw(canvas);
+        draw(canvas);
         Paint paint = new Paint();
         paint.setAntiAlias(true);
         paint.setColor(Color.RED);
@@ -75,7 +75,7 @@ public class TrigonometricFunctionDemoView extends SurfaceView implements Handle
         double initCenterPointX =  screenWidth/2;
         double initCenterPointY =  screenHeight/2;
 
-        canvas.drawLine(0, (float) initCenterPointY,screenWidth, (float) initCenterPointY,paint);
+        //canvas.drawLine(0, (float) initCenterPointY,screenWidth, (float) initCenterPointY,paint);
 
 
 
@@ -107,12 +107,12 @@ public class TrigonometricFunctionDemoView extends SurfaceView implements Handle
             canvas.drawLine( (float) ABC_C, startY,(float) initCenterPointX, (float) initCenterPointY,paint);
 
 
-            paint.setStrokeWidth(Util.dip2px(getContext(),1));
+            /*paint.setStrokeWidth(Util.dip2px(getContext(),1));
 
 
             canvas.drawLine( (float) ABC_C, startY,0, startY,paint);
 
-            canvas.drawLine( (float) ABC_C, startY,0, (float) initCenterPointY,paint);
+            canvas.drawLine( (float) ABC_C, startY,0, (float) initCenterPointY,paint);*/
 
 
 
@@ -146,12 +146,12 @@ public class TrigonometricFunctionDemoView extends SurfaceView implements Handle
             canvas.drawLine( startX, startY,(float) initCenterPointX, (float) initCenterPointY,paint);
 
 
-            paint.setStrokeWidth(Util.dip2px(getContext(),1));
+          /*  paint.setStrokeWidth(Util.dip2px(getContext(),1));
 
 
             canvas.drawLine( startX, startY,screenWidth, startY,paint);
 
-            canvas.drawLine( startX, startY,screenWidth, (float) initCenterPointY,paint);
+            canvas.drawLine( startX, startY,screenWidth, (float) initCenterPointY,paint);*/
 
 
             Log.d(TAG,"startY "+startY);
@@ -193,7 +193,7 @@ public class TrigonometricFunctionDemoView extends SurfaceView implements Handle
     @Override
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
         circleAngleTimer = new Timer();
-        circleAngleTimer.schedule(new CircleAngleTimerTask(),1000,800);
+        circleAngleTimer.schedule(new CircleAngleTimerTask(),1000,50);
     }
 
     @Override
