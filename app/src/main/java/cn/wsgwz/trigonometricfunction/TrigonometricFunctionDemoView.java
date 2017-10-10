@@ -139,6 +139,7 @@ public class TrigonometricFunctionDemoView extends SurfaceView implements Handle
             Log.d(TAG,"ABC_A "+ABC_A);
 
 
+
             float startY  = (float)( initCenterPointY+ABC_A );
 
             float startX = (float) (screenWidth-ABC_C);
