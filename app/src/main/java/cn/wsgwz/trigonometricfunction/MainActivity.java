@@ -1,5 +1,7 @@
 package cn.wsgwz.trigonometricfunction;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -22,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
       /*  TextView tv = (TextView) findViewById(R.id.sample_text);
         tv.setText(stringFromJNI());*/
         trigonometricFunctionDemoView = (TrigonometricFunctionDemoView) findViewById(R.id.trigonometricFunctionDemoView);
+
+        String url = "mqqwpa://im/chat?chat_type=crm&uin=800032752&version=1&src_type=web&web_src=http:://wpa.b.qq.com";
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
     }
 
     /**
