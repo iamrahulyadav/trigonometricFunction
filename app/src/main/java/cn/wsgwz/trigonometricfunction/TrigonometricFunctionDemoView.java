@@ -65,7 +65,7 @@ public class TrigonometricFunctionDemoView extends SurfaceView implements Handle
     private void draw() throws Exception {
         canvas = surfaceHolder.lockCanvas();
 
-        draw(canvas);
+        //draw(canvas);
         Paint paint = new Paint();
         paint.setAntiAlias(true);
         paint.setColor(Color.RED);
@@ -116,7 +116,6 @@ public class TrigonometricFunctionDemoView extends SurfaceView implements Handle
 
 
 
-
             Log.d(TAG,"startY "+startY);
         }else if(circleAngle<=360){
             //等腰三角形 相等的两个角的角度
@@ -152,8 +151,6 @@ public class TrigonometricFunctionDemoView extends SurfaceView implements Handle
             canvas.drawLine( startX, startY,screenWidth, startY,paint);
 
             canvas.drawLine( startX, startY,screenWidth, (float) initCenterPointY,paint);
-
-
 
 
             Log.d(TAG,"startY "+startY);
