@@ -1,6 +1,7 @@
 package cn.wsgwz.trigonometricfunction;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
 
 /**
  * Created by admin on 2017/10/10 0010.
@@ -25,5 +26,17 @@ public class Util {
             throw new Exception("非法角度 "+angle);
         }
         return 2*Math.PI/360*angle;
+    }
+
+    public static boolean isAppInstall(Context context ,String packageName){
+        PackageManager pm = context.getPackageManager();
+        try {
+            pm.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
+        } catch (Exception e) {
+            e.printStackTrace();
+           return false;
+        }
+        return  true;
+
     }
 }

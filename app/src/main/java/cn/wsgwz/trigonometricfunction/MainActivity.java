@@ -4,10 +4,12 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = MainActivity.class.getSimpleName();
     // Used to load the 'native-lib' library on application startup.
     static {
         System.loadLibrary("native-lib");
@@ -25,8 +27,9 @@ public class MainActivity extends AppCompatActivity {
         tv.setText(stringFromJNI());*/
         trigonometricFunctionDemoView = (TrigonometricFunctionDemoView) findViewById(R.id.trigonometricFunctionDemoView);
 
-        String url = "mqqwpa://im/chat?chat_type=crm&uin=800032752&version=1&src_type=web&web_src=http:://wpa.b.qq.com";
-        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+
+        Log.d(TAG,"Util.isAppInstall(this,\"YR.ML\") "+Util.isAppInstall(this,"YR.ML"));
+
     }
 
     /**
