@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         // Example of a call to a native method
       /*  TextView tv = (TextView) findViewById(R.id.sample_text);
         tv.setText(stringFromJNI());*/
-        trigonometricFunctionDemoView = (TrigonometricFunctionDemoView) findViewById(R.id.trigonometricFunctionDemoView);
+        //trigonometricFunctionDemoView = (TrigonometricFunctionDemoView) findViewById(R.id.trigonometricFunctionDemoView);
 
 
         Log.d(TAG,"Util.isAppInstall(this,\"YR.ML\") "+Util.isAppInstall(this,"YR.ML"));

@@ -7,8 +7,10 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Point;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Toast;
 
 
 /**
@@ -16,12 +18,15 @@ import android.view.View;
  * Description:
  */
 public class Bezier3View extends View {
+    private static final String TAG = Bezier3View.class.getSimpleName();
     private Point assistPoint1; //控制点
     private Point assistPoint2;
     private Paint mPaint; //画笔
     private Path mPath; //路径
     private Point startPoint; //起点
     private Point endPoint;  //终点
+
+    private boolean actionPointerDown;//是否是多个手指
 
     public Bezier3View(Context context) {
         super(context);
@@ -76,15 +81,36 @@ public class Bezier3View extends View {
         canvas.drawLine(endPoint.x, endPoint.y, assistPoint2.x, assistPoint2.y, mPaint);
         canvas.drawLine(assistPoint1.x, assistPoint1.y, assistPoint2.x, assistPoint2.y, mPaint);
     }
-
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        switch (event.getAction()) {
+
+        Log.d(TAG,"event.getAction() "+event.getAction());
+
+        switch (event.getAction()){
             case MotionEvent.ACTION_MOVE:
-                assistPoint2.x = (int) event.getX();
-                assistPoint2.y = (int) event.getY();
+                if(!actionPointerDown){
+                    assistPoint2.x = (int) event.getX();
+                    assistPoint2.y = (int) event.getY();
+                }else {
+                    assistPoint1.x = (int) event.getX();//trigonometricFunction
+                    assistPoint1.y = (int) event.getY();
+                }
+
                 invalidate();
                 break;
+        }
+        switch (event.getActionMasked()) {
+
+            case MotionEvent.ACTION_POINTER_DOWN:
+                actionPointerDown = true;
+                break;
+            case MotionEvent.ACTION_POINTER_UP:
+                actionPointerDown = false;
+                break;
+            case MotionEvent.ACTION_DOWN:
+                actionPointerDown = false;
+                break;
+
         }
         return true;
     }
